@@ -2438,7 +2438,6 @@ function AIResumeAnalyzer() {
 
       const response = await axios.post(
   "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/ai/analyze-resume",
-  formData,
   {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -2587,24 +2586,21 @@ function AdminDashboard() {
 
       // Get statistics
       const statsResponse = await axios.get(
-        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/stats"
-    
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/stats",
         { headers }
       );
 
 
       // Get users
       const usersResponse = await axios.get(
-        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/users"
-
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/users",
         { headers }
       );
 
 
       // Get jobs
       const jobsResponse = await axios.get(
-        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs"
-      
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/jobs",
         { headers }
       );
 
