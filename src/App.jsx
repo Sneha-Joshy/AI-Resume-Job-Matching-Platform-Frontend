@@ -212,7 +212,7 @@ function HomePage({ setPage, onViewJob }) {
     const fetchJobs = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/jobs"
+          "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs"
         );
 
         setJobs(response.data.jobs || response.data);
@@ -421,7 +421,7 @@ function JobsPage({ onViewJob }) {
       try {
 
         const response = await axios.get(
-          "http://localhost:5000/api/jobs"
+          "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs"
         );
 
         setJobs(response.data.jobs || response.data);
@@ -589,7 +589,7 @@ function JobDetailsPage({ job, setPage }) {
 
 
       const response = await axios.post(
-        "http://localhost:5000/api/applications",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/applications",
         {
           jobId: job._id,
           coverLetter,
@@ -697,7 +697,7 @@ function JobDetailsPage({ job, setPage }) {
 
 
       const response = await axios.post(
-        "http://localhost:5000/api/ai/match-job",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/ai/match-job",
         formData,
         {
           headers: {
@@ -967,7 +967,7 @@ function LoginPage({ setPage, setUser }) {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/auth/login",
         {
           email,
           password,
@@ -1120,7 +1120,7 @@ function RegisterPage({ setPage }) {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/auth/register",
         {
           name,
           email,
@@ -1317,7 +1317,7 @@ function JobSeekerDashboard() {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          "http://localhost:5000/api/applications/my",
+          "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/applications/my",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -1436,7 +1436,7 @@ function RecruiterDashboard() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        "http://localhost:5000/api/applications/recruiter",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/applications/recruiter",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -1482,7 +1482,7 @@ function RecruiterDashboard() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/applications/${applicationId}/status`,
+        `https://ai-resume-job-matching-platform-backend-1.onrender.com/api/applications/${applicationId}/status`,
         { status },
         {
           headers: {
@@ -1655,7 +1655,7 @@ function PostJobPage({ setPage }) {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:5000/api/jobs",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs",
         {
           ...form,
           requiredSkills: form.requiredSkills
@@ -1861,7 +1861,7 @@ function MyJobsPage() {
     try {
 
       const response = await axios.get(
-        "http://localhost:5000/api/jobs"
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs"
       );
 
       const allJobs =
@@ -1917,7 +1917,7 @@ function MyJobsPage() {
       const token = localStorage.getItem("token");
 
       await axios.delete(
-        `http://localhost:5000/api/jobs/${jobId}`,
+        `https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs/${jobId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -2020,7 +2020,7 @@ function MyJobsPage() {
 
 
       await axios.put(
-        `http://localhost:5000/api/jobs/${editingJob._id}`,
+        `https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs/${editingJob._id}`,
         updatedData,
         {
           headers: {
@@ -2436,16 +2436,15 @@ function AIResumeAnalyzer() {
         resume
       );
 
-
       const response = await axios.post(
-        "http://localhost:5000/api/ai/analyze-resume",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+  "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/ai/analyze-resume",
+  formData,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
 
 
       setAnalysis(
@@ -2588,28 +2587,31 @@ function AdminDashboard() {
 
       // Get statistics
       const statsResponse = await axios.get(
-        "http://localhost:5000/api/admin/stats",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/stats"
+    
         { headers }
       );
 
 
       // Get users
       const usersResponse = await axios.get(
-        "http://localhost:5000/api/admin/users",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/users"
+
         { headers }
       );
 
 
       // Get jobs
       const jobsResponse = await axios.get(
-        "http://localhost:5000/api/admin/jobs",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/jobs"
+      
         { headers }
       );
 
 
       // Get applications
       const applicationsResponse = await axios.get(
-        "http://localhost:5000/api/admin/applications",
+        "https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/applications",
         { headers }
       );
 
@@ -2674,7 +2676,7 @@ function AdminDashboard() {
 
 
       await axios.delete(
-        `http://localhost:5000/api/admin/users/${userId}`,
+        `https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/users/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -2715,7 +2717,7 @@ function AdminDashboard() {
 
 
       await axios.delete(
-        `http://localhost:5000/api/admin/jobs/${jobId}`,
+        `https://ai-resume-job-matching-platform-backend-1.onrender.com/api/admin/jobs/${jobId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
